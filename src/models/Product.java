@@ -19,6 +19,12 @@ public class Product {
         this.price = price;
         this.quantity = quantity;
     }
+    public void set_shippableBehavior(ShippableBehavior shippableBehavior) {
+        this.shippableBehavior = shippableBehavior;
+    }
+    public void set_expirationBehavior(ExpirationBehavior expirationBehavior) {
+        this.expirationBehavior = expirationBehavior;
+    }
     public String getName() {
         return name;
     }
