@@ -22,6 +22,11 @@ public class Cart {
         if(!item.isAvailable()) {
             throw new IllegalArgumentException("Item is not available for purchase: " + item.getProduct().getName());
         }
+        if (item.isExpired()) {
+            throw new IllegalArgumentException("Item is expired: " + 
+                                              item.getProduct().getName() 
+                                            + item.getProduct().getExpirationDate());
+        }
         items.add(item);
         totalPrice += item.getProduct().getPrice() * item.getQuantity();
         totalQuantity += item.getQuantity();
@@ -53,8 +58,8 @@ public class Cart {
     // Print the cart receipt
     public void printCartReceipt() {
         if (isEmpty()) {
-            System.out.println("Cart is empty!!! ");
-            return;
+            throw new IllegalArgumentException("Cart is empty!!! ");
+          
         }
         System.out.println("** Checkout receipt **");
         for (CartItem item : items) {
@@ -68,8 +73,7 @@ public class Cart {
     // Calculate the shipping cost for the items in the cart
     public double getShippingCost() {
         if (isEmpty()) {
-            System.out.println("Cart is empty!!! ");
-            return 0.0;
+            throw new IllegalArgumentException("Cart is empty!!! ");
         }
         ShippingService shippingService = new ShippingService();
         List<ShippableItem> shippableItems = getShippableItems();
@@ -87,8 +91,7 @@ public class Cart {
     // This method prints the shipping receipt for the items in the cart
     public void printShippingReceipt() {
         if (isEmpty()) {
-            System.out.println("Cart is empty!!! ");
-            return;
+            throw new IllegalArgumentException("Cart is empty!!! ");
         }
         List<ShippableItem> shippableItems = getShippableItems();
 

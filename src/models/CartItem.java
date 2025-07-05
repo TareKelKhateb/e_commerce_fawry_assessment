@@ -23,5 +23,9 @@ public class CartItem {
     public boolean isShippable() {
         return product.isShippable();
     }
+    public boolean isExpired() {
+        
+        return product.isExpired();
+    }
 
 }

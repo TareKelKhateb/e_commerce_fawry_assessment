@@ -34,8 +34,7 @@ public class Customer {
     public void checkout(){
 
         if (cart == null || cart.isEmpty()) {
-            System.out.println("Cart is empty!!! ");
-            return;
+           throw new IllegalArgumentException("Cart is empty. Please add items to the cart before checkout.");
         }
         cart.printCartReceipt();
         System.out.println("=======================================================");
@@ -47,7 +46,7 @@ public class Customer {
         }
         balance -= totalPrice;
         System.out.println("Checkout successful! Remaining balance: " + balance);
-        cart = new Cart(); // Clear the cart after checkout
+        cart = new Cart(); 
 
     }
 
