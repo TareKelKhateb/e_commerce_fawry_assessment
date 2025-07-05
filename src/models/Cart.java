@@ -23,5 +23,14 @@ public class Cart {
         totalQuantity += item.getQuantity();
     }
     
+    public boolean IsEmbty() {
+        return items.isEmpty();
+    }
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+    public int getTotalQuantity() {
+        return totalQuantity;
+    }
 
 }
