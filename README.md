@@ -23,12 +23,7 @@ e_commerce/
 
 ## Example Output (`App.java`)
 
-### Output Explanation
-
-### The following are the four use cases demonstrated by the output:
-
-
-### Four Use Cases
+### The following are the five use cases demonstrated by the output:
 
 1. Working use case with valid products and customer checkout
 2. Error: Cart is empty
