@@ -74,7 +74,7 @@ public class Product {
         return new ShippableItem() {
             @Override
             public String getName() {
-                return getName();
+                return Product.this.name;
             }
             @Override
             public double getWeight() {

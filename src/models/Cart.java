@@ -47,19 +47,22 @@ public class Cart {
         return shippableItems;
     }
 
+    // Print the cart receipt
     public void printCartReceipt() {
         if (isEmpty()) {
             System.out.println("Cart is empty!!! ");
             return;
         }
+        System.out.println("** Checkout receipt **");
         for (CartItem item : items) {
-            System.out.println("Product: " + item.getProduct().getName() +
-                               ", Quantity: " + item.getQuantity() +
-                               ", Price: " + item.getProduct().getPrice());
+            System.out.println(item.getQuantity() + "x " +
+                               item.getProduct().getName() + " " +
+                               item.getProduct().getPrice());
         }
         System.out.println("Total Price: " + getTotalPrice());
     }
 
+    // Calculate the shipping cost for the items in the cart
     public double getShippingCost() {
         if (isEmpty()) {
             System.out.println("Cart is empty!!! ");
@@ -77,20 +80,33 @@ public class Cart {
         return shippingCost;
     }
 
+    // Print the shipping receipt
+    // This method prints the shipping receipt for the items in the cart
     public void printShippingReceipt() {
         if (isEmpty()) {
             System.out.println("Cart is empty!!! ");
             return;
         }
-        ShippingService shippingService = new ShippingService();
         List<ShippableItem> shippableItems = getShippableItems();
 
         if (shippableItems.isEmpty()) {
             System.out.println("No shippable items in the cart.");
             return;
         }
-        System.out.println("Shipping Receipt:");
-        shippingService.shipItems(shippableItems);
+        // Print the shipping notice
+        // This method prints the shipping notice for the items in the cart
+        // It calculates the total weight of the shippable items and prints the details
+        System.out.println("** Shipment notice **");
+        double totalWeight = 0.0;
+        for (CartItem item : items) {
+            Product product = item.getProduct();
+            if (product.isShippable()) {
+                double itemWeight=product.asShippableItem().getWeight();
+                System.out.println(item.getQuantity() + "x " + product.getName() + " " + itemWeight + "kg");
+                totalWeight += itemWeight * item.getQuantity();
+            }
+        }
+        System.out.printf("Total package weight %.1fkg\n", totalWeight );
         System.out.println("Total Shipping Cost: " + getShippingCost());
     }
 

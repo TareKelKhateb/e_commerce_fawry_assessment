@@ -38,6 +38,7 @@ public class Customer {
             return;
         }
         cart.printCartReceipt();
+        System.out.println("=======================================================");
         cart.printShippingReceipt();
         double totalPrice = cart.getTotalPriceWithShipping();
         if (balance < totalPrice) {
