@@ -38,11 +38,14 @@ src/
 
 ### The following are the four use cases demonstrated by the output:
 
-// FOUR USE CASES
-// 1. Working use case with valid products and customer checkout
-// 2. Error: Cart is empty
-// 3. Error: Insufficient balance
-// 4. Error: Product out of stock
+
+### Four Use Cases
+
+1. Working use case with valid products and customer checkout
+2. Error: Cart is empty
+3. Error: Insufficient balance
+4. Error: Product out of stock
+5. Error: Product expired
 
 ```
 ****=== Working use case ===****
