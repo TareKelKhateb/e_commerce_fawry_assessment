@@ -58,15 +58,34 @@ public class Product {
         }
         return "No expiration date";
     }
-   
-    public boolean isShippable() {
-        return shippableBehavior != null;
-    }
-    public String getWeight() {
+     public String getWeight() {
         if (isShippable()) {
             return shippableBehavior.getweight();
         }
         return "Not shippable";
+    }
+   
+    public boolean isShippable() {
+        return shippableBehavior != null;
+    }
+   
+    public ShippableItem asShippableItem() {
+        if (!isShippable()) return null;
+        return new ShippableItem() {
+            @Override
+            public String getName() {
+                return getName();
+            }
+            @Override
+            public double getWeight() {
+                try {
+                    String weightStr = shippableBehavior.getweight().split(" ")[0];
+                    return Double.parseDouble(weightStr);
+                } catch (Exception e) {
+                    return 0.0;
+                }
+            }
+        };
     }
 }
 

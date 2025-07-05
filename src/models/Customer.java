@@ -32,24 +32,20 @@ public class Customer {
     }
     
     public void checkout(){
-        if (cart == null || cart.IsEmbty()) {
-            throw new IllegalStateException("Cart is empty!!! ");
-        }
-        
-        double totalCost = cart.getTotalPrice();
-        if (getBalance() < totalCost) {
-            System.out.println("Insufficient balance to complete the purchase.");
+
+        if (cart == null || cart.isEmpty()) {
+            System.out.println("Cart is empty!!! ");
             return;
         }
-        
-        // Deduct the total cost from the customer's balance
-        double newbalance = getBalance() - totalCost;
-        setBalance(newbalance);
-        
-        // Clear the cart after checkout
-        cart.getItems().clear();
-        
+        cart.printCartReceipt();
+        cart.printShippingReceipt();
+        double totalPrice = cart.getTotalPriceWithShipping();
+        if (balance < totalPrice) {
+            throw new IllegalArgumentException("Insufficient balance for checkout. Total price: " + totalPrice + ", Available balance: " + balance);
+        }
+        balance -= totalPrice;
         System.out.println("Checkout successful! Remaining balance: " + balance);
+        cart = new Cart(); // Clear the cart after checkout
 
     }
 

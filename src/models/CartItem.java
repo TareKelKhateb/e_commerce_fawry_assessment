@@ -20,5 +20,8 @@ public class CartItem {
     public int getQuantity() {
         return this.quantity;
     }
+    public boolean isShippable() {
+        return product.isShippable();
+    }
 
 }
