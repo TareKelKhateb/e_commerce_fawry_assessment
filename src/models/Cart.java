@@ -19,6 +19,9 @@ public class Cart {
     }
 
     public void addItem(CartItem item) {
+        if(!item.isAvailable()) {
+            throw new IllegalArgumentException("Item is not available for purchase: " + item.getProduct().getName());
+        }
         items.add(item);
         totalPrice += item.getProduct().getPrice() * item.getQuantity();
         totalQuantity += item.getQuantity();
@@ -106,8 +109,10 @@ public class Cart {
                 totalWeight += itemWeight * item.getQuantity();
             }
         }
+        System.out.printf("\n");
         System.out.printf("Total package weight %.1fkg\n", totalWeight );
         System.out.println("Total Shipping Cost: " + getShippingCost());
+        System.out.println("=======================================================");
     }
 
     public double getTotalPriceWithShipping() {

@@ -41,6 +41,7 @@ public class Customer {
         System.out.println("=======================================================");
         cart.printShippingReceipt();
         double totalPrice = cart.getTotalPriceWithShipping();
+        System.out.println("Total Price with Shipping: " + totalPrice + "\n");
         if (balance < totalPrice) {
             throw new IllegalArgumentException("Insufficient balance for checkout. Total price: " + totalPrice + ", Available balance: " + balance);
         }
