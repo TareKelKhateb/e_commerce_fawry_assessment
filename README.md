@@ -1,35 +1,24 @@
 ## Project Structure
 
 ```
-README.md
-src/
-    App.class
-    App.java
-    behaviour/
-        Expiration.class
-        Expiration.java
-        ExpirationBehavior.class
-        ExpirationBehavior.java
-        Shippable.class
-        Shippable.java
-        ShippableBehavior.class
-        ShippableBehavior.java
-    models/
-        Cart.class
-        Cart.java
-        CartItem.class
-        CartItem.java
-        Customer.class
-        Customer.java
-        Product.class
-        Product.java
-        ShippableItem.class
-        ShippableItem.java
-        Weight.class
-        Weight.java
-    services/
-        ShippingService.class
-        ShippingService.java
+e_commerce/
+├── README.md
+└── src/
+    ├── App.java
+    ├── behaviour/
+    │   ├── Expiration.java
+    │   ├── ExpirationBehavior.java
+    │   ├── Shippable.java
+    │   ├── ShippableBehavior.java
+    ├── models/
+    │   ├── Cart.java
+    │   ├── CartItem.java
+    │   ├── Customer.java
+    │   ├── Product.java
+    │   ├── ShippableItem.java
+    │   ├── Weight.java
+    └── services/
+        └── ShippingService.java
 ```
 
 ## Example Output (`App.java`)
