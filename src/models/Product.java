@@ -79,8 +79,8 @@ public class Product {
             @Override
             public double getWeight() {
                 try {
-                    String weightStr = shippableBehavior.getweight().split(" ")[0];
-                    return Double.parseDouble(weightStr);
+                    // Use Weight.getWeightInKg() for correct conversion to kilograms
+                    return Product.this.shippableBehavior.getWeightObject().getWeightInKg();
                 } catch (Exception e) {
                     return 0.0;
                 }

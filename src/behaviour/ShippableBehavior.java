@@ -12,4 +12,9 @@ public class ShippableBehavior implements Shippable {
     public String getweight() {
         return weight.getWeight() + " " + weight.getUnit();
     }
+
+    // Add this getter to access the Weight object
+    public Weight getWeightObject() {
+        return weight;
+    }
 }

@@ -11,11 +11,11 @@ public class App {
         Product biscuits = new Product("Biscuits", 150, 700);
         biscuits.set_shippableBehavior(new ShippableBehavior("700", "g"));
 
-        Product chocolate = new Product("Chocolate", 100, 0); // Not shippable
+        Product chocolate = new Product("Chocolate", 100, 10); // Not shippable
 
         Customer customer = new Customer("John Doe", 1000.0, null);
 
-        CartItem cheeseItem = new CartItem(cheese, 2000);
+        CartItem cheeseItem = new CartItem(cheese, 2);
         CartItem biscuitsItem = new CartItem(biscuits, 1);
         CartItem chocolateItem = new CartItem(chocolate, 3);
 
